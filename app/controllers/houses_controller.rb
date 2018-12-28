@@ -1,4 +1,5 @@
 class HousesController < ApplicationController
+  before_action :false_user, only:[:edit, :destroy]
   def index
     words = params[:q].delete(:search_words) if params[:q].present?
   if words.present?
@@ -55,5 +56,13 @@ class HousesController < ApplicationController
   
   def house_params
     params.require(:house).permit(:name,:station,:deposit,:key,:floor,:money,:comment,:adress, [:image])
-  end  
+  end 
+  def false_user
+    if current_user.id == @picture.user_id
+      #redirect_to new_session_path
+    
+    else
+      redirect_to new_session_path
+    end
+  end
 end
