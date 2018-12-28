@@ -1,0 +1,34 @@
+// Place all the styles related to the tops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#top{
+    
+    background-image: url(../assets/tops_log_back.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.top_content p{
+    margin-bottom: auto;
+    font-size: 18px;
+}
+
+.top_content{
+    margin-top: 400px;
+    margin-left: 800px;
+}
+
+.top_btn{
+    margin-top: 10px;
+    margin-left: 500px;
+    background-color: #BAD3FF;
+    padding: 10px 20px 10px 20px;
+}
+
+.top_fot{
+    margin-left: 1100px;
+    margin-top: 140px;
+}

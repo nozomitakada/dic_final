@@ -1,0 +1,11 @@
+<header>
+    <ul>
+        <li><%= link_to 'Home', '/houses' %></li>
+        <li><%= link_to 'User', users_path %></li>
+        
+    </ul>
+</header>
+
+<h1><%= @user.name %>のページ</h1>
+
+<p>メールアドレス: <%= @user.email %></p>

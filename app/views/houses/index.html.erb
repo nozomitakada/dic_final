@@ -1,0 +1,51 @@
+<header>
+    <ul>
+        <li><%= link_to 'Home', '/houses' %></li>
+        <li><%= link_to 'User', users_path(current_user.id) %></li>
+        <li><%= link_to 'Logout', users_path(current_user.id) %></li>
+        
+        
+    </ul>
+</header>
+
+<div class="houses_index">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2>物件一覧</h2>
+        <%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, "Name" %>
+    <%= f.text_field :name_cont, class: "form-control" %>
+    <%= f.label :adress_cont, "Adress" %>
+    <%= f.text_field :adress_cont, class: "form-control" %>
+    <%= f.label :station_cont, "Station" %>
+    <%= f.text_field :station_cont, class: "form-control" %>
+    <%= f.label :floor_cont, "floor" %>
+    <%= f.text_field :floor_cont, class: "form-control" %>
+    <%= f.label :money_cont, "Money" %>
+    <%= f.text_field :money_cont, class: "form-control" %>
+
+
+
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+        <% @houses.each do |house| %>
+        <div class="">
+            <h3><%= link_to house.name, house_path(house.id) %></h3>
+            <p><%= image_tag house.image.url unless house.image.blank? %></p>
+        </div>
+        <%= link_to 'show', house_path(house.id) %>
+        <%= link_to 'edit', edit_house_path(house.id) %>
+        <%= link_to 'delete', house_path(house.id), method: :delete %>
+        <% end %>
+    </div>
+    
+    <div class="col-md-3"></div>
+</div>
+
+<!--
+<footer>
+    <p>@Copyright.2018.12</p>
+</footer>
+-->

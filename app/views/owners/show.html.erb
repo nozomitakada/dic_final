@@ -1,0 +1,12 @@
+<h1><%= @owner.name %>のページ</h1>
+
+<p>メールアドレス: <%= @owner.email %></p>
+
+<table>    
+    <tr>
+        <% @owner.houses.each do |house| %>
+        <td class="user_pic_img"><%= link_to image_tag(house.image.url),picture_path(house.id) %></td>
+        <% end %>
+        </tr>
+    <br >
+</table>

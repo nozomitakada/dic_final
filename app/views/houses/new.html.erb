@@ -1,0 +1,45 @@
+<%= form_with(model: @house, local: true) do |form| %>
+  <div class="house_title">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="house_title">
+    <%#= form.label :image %>
+    <%#= form.file_field :image, :multiple => true %>
+    <%= form_for(@house) do |f| %>
+      <%= f.fields_for :images do |iamge| %>
+      <%= f.file_field :image, :multiple => true %>
+    <% end %>
+  </div>
+  <div class="house_title">
+    <%= form.label :station%>
+    <%= form.text_field :station %>
+  </div>
+  <div class="house_title"><!-- 敷金 -->
+    <%= form.label :deposit %>
+    <%= form.text_field :deposit %>
+  </div>
+  <div class="house_title"><!-- 礼金 -->
+    <%= form.label :key %>
+    <%= form.text_field :key %>
+  </div>
+  <div class="house_title">
+    <%= form.label :floor %>
+    <%= form.text_field :floor %>
+  </div>
+  <div class="house_title">
+    <%= form.label :money %>
+    <%= form.text_field :money %>
+    
+  </div>
+  <div class="house_title">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+  <div class="house_title">
+    <%= form.label :adress %>
+    <%= form.text_field :adress %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<% end %>

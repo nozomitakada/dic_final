@@ -1,0 +1,44 @@
+<div class="house_show">
+    <div class="a">
+        <h2><%= @house.name %></h2>
+        <% if @house.image? %>
+        <p><%= image_tag @house.image.url %></p>
+        <% end %>
+        <p>家賃：月<%= @house.money %>円</p>
+        <p>敷金/礼金：<%= @house.deposit %>円/<%= @house.key %>円</p>
+        <p>最寄り駅：<%= @house.station %></p>
+        <p>間取り：<%= @house.floor %></p>
+        <p>住所：<%= @house.adress %></p>
+
+    </div>
+    <div class="comparision">
+        <p><%= @house.adress %>の相場：<%= @price.money %></p>
+        <p>この物件の家賃：<%= @house.money %></p>
+        
+    </div>
+    
+    <div class="home_contact">
+    <%= form_with(model: @contact, local: true) do |form| %>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, id: :contact_name %>
+      </div>
+    
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email, id: :contact_email %>
+      </div>
+    
+      <div class="field">
+        <%= form.label :content %>
+        <%= form.text_area :content, id: :contact_content %>
+      </div>
+    
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+    </div>
+    
+</div>
